@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wdth,wght@90.4,350&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wdth,wght@90.4,500&display=swap');
+
+:root {
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: #ffffffde;
+
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --pinterest-rtc-standardGrey: #ECECEC
+}
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", serif;
+  font-optical-sizing: auto;
+  font-weight: 350;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 90.4;
+}
+

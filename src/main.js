@@ -14,7 +14,7 @@ mainMaker(body);
 footerMaker(body);
 
 
-console.log(userDataAleix[0].name[0]);
+
 
 
 

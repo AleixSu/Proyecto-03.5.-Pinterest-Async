@@ -1,7 +1,9 @@
-import { randomDates, randomUserNames, userRingColors } from '../objects & arrays/objects&Arrays';
+
+import { createGenericButton } from '../button/button';
+import { userRingColors } from '../objects & arrays/objects&Arrays';
 import './cards.css';
 
-export const cardMaker = (elementoPadre, imageUrl, profileUrl) => {
+export const cardMaker = (elementoPadre, imageUrl, profileImgUrl, userID, creationDate, pCount = 0 , lCount = 0) => {
     const cardDiv = document.createElement("div");
     elementoPadre.appendChild(cardDiv)
     cardDiv.className = "cardDiv";
@@ -14,10 +16,55 @@ export const cardMaker = (elementoPadre, imageUrl, profileUrl) => {
         cardDivImg.appendChild(cardImg);
         cardImg.src = imageUrl;
     
+    const photoButton = document.createElement("button");
+    cardDiv.appendChild(photoButton);
+    photoButton.className = "photoButton";
+
+        const cameraImg = document.createElement("img");
+        cameraImg.src = "https://cdn-icons-png.flaticon.com/128/45/45010.png"
+        photoButton.appendChild(cameraImg)
+
+        const photoCount = document.createElement("h6")
+        photoCount.innerText = pCount;
+        photoButton.appendChild(photoCount)
+
+    const likeButton = document.createElement("button");
+    cardDiv.appendChild(likeButton);
+    likeButton.className = "likeButton";
+
+        const heartDiv = document.createElement("div");
+        heartDiv.classList = "heartDivEmpty";
+        likeButton.appendChild(heartDiv);
+
+            likeButton.addEventListener("click", () => {
+
+                if (heartDiv.classList.contains("heartDivEmpty")) {
+                    heartDiv.classList.remove("heartDivEmpty");
+                    heartDiv.classList.add("heartDivFull");
+                    likeCount.innerText = parseInt(likeCount.innerText) + 1;
+                } else {
+                    heartDiv.classList.remove("heartDivFull");
+                    heartDiv.classList.add("heartDivEmpty");
+                    likeCount.innerText = parseInt(likeCount.innerText) - 1;
+                };
+
+            });
+    
+        const likeCount = document.createElement("h6")
+        likeCount.innerText = lCount;
+        likeButton.appendChild(likeCount)
+
+        if (parseInt(likeCount.innerText) > 99) {
+                likeCount.innerText = "+99"
+            }
+ 
+
+    createGenericButton(cardDiv, "Visitar", "#f01e2c", "#ffffff", "visitButton")
+
     const cardUserImgDiv = document.createElement("div");
     cardDiv.appendChild(cardUserImgDiv);
     cardUserImgDiv.className = "userPicture";
-    cardUserImgDiv.style.backgroundImage = `url(${profileUrl})`;
+    cardUserImgDiv.style.backgroundImage = `url(${profileImgUrl})`;
     cardUserImgDiv.style.border = "solid 3.5px " + userRingColors[Math.floor(Math.random() * 7)];
     
 
@@ -30,23 +77,8 @@ export const cardMaker = (elementoPadre, imageUrl, profileUrl) => {
         const uploadDate = document.createElement("h4");
         cardInfoDiv.appendChild(uploadDate);
 
-            userName.textContent = randomUserNames[Math.floor(Math.random() * 49)]
-            uploadDate.textContent = randomDates[Math.floor(Math.random() * 49)]
+            userName.textContent = userID;
+            uploadDate.textContent = creationDate;
 
         };
 
-
-export const catMaker = (elementoPadre, catUrl) => {
-    const catDiv = document.createElement("div");
-    elementoPadre.appendChild(catDiv);
-    catDiv.className = "catDiv";
-
-    const catDivImg = document.createElement("div");
-    catDiv.appendChild(catDivImg);
-    catDivImg.className = "catDivImg";
-
-        const catImg = document.createElement("img");
-        catDivImg.appendChild(catImg);
-        catImg.src = catUrl;
-
-};

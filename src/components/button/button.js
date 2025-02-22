@@ -29,3 +29,12 @@ export const createProfileButton = (elementoPadre, userData) => {
     profileButton.classList = "profile-button";
 
 }
+
+export const createGenericButton = (elementoPadre, text, BGcolor, fontColor, nameClass) => {
+    const genericButton = document.createElement("button");
+    elementoPadre.appendChild(genericButton);
+    genericButton.innerText = text;
+    genericButton.style.backgroundColor = BGcolor;
+    genericButton.style.color = fontColor;
+    genericButton.className = nameClass;
+}

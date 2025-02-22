@@ -9,23 +9,23 @@
 
 }
 
-.cardDivImg >img:hover {
-    transition: 0.5s;
-    filter:blur(0px) brightness(40%);
-    z-index: 2;  
-}
-
 .cardDivImg {
     color: white;
-    
+     transition: 0.5s;
 }
 
 .cardDivImg > img{
     max-width: 100%;
     border-radius: 20px;
     object-fit: cover;
+    transition: 0.5s all;
 }
 
+.cardDiv:hover .cardDivImg >img{
+    transition: 0.5s;
+    filter:blur(1px) brightness(40%);
+    z-index: 2;  
+}
 .userPicture {
     height: 90px;
     width: 90px;
@@ -41,15 +41,18 @@
 
 
 .cardInfoDiv {
-    margin-top: 50px;
+    margin-top: 60px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: auto;
-    color: black
+    color: black;
+    font-size: 17px;
 }
+
+
 
 
 

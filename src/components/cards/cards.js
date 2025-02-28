@@ -3,7 +3,7 @@ import { createGenericButton } from '../button/button';
 import { userRingColors } from '../objects & arrays/objects&Arrays';
 import './cards.css';
 
-export const cardMaker = (elementoPadre, imageUrl, profileImgUrl, userID, creationDate, pCount = 0 , lCount = 0) => {
+export const cardMaker = (elementoPadre, image) => {
     const cardDiv = document.createElement("div");
     elementoPadre.appendChild(cardDiv)
     cardDiv.className = "cardDiv";
@@ -14,7 +14,7 @@ export const cardMaker = (elementoPadre, imageUrl, profileImgUrl, userID, creati
 
         const cardImg = document.createElement("img");
         cardDivImg.appendChild(cardImg);
-        cardImg.src = imageUrl;
+        cardImg.src = image.urls.small;
     
     const photoButton = document.createElement("button");
     cardDiv.appendChild(photoButton);
@@ -25,7 +25,7 @@ export const cardMaker = (elementoPadre, imageUrl, profileImgUrl, userID, creati
         photoButton.appendChild(cameraImg)
 
         const photoCount = document.createElement("h6")
-        photoCount.innerText = pCount;
+        photoCount.innerText = image.user.total_promoted_photos;
         photoButton.appendChild(photoCount)
 
     const likeButton = document.createElement("button");
@@ -51,7 +51,7 @@ export const cardMaker = (elementoPadre, imageUrl, profileImgUrl, userID, creati
             });
     
         const likeCount = document.createElement("h6")
-        likeCount.innerText = lCount;
+        likeCount.innerText = image.likes;
         likeButton.appendChild(likeCount)
 
         if (parseInt(likeCount.innerText) > 99) {
@@ -64,7 +64,7 @@ export const cardMaker = (elementoPadre, imageUrl, profileImgUrl, userID, creati
     const cardUserImgDiv = document.createElement("div");
     cardDiv.appendChild(cardUserImgDiv);
     cardUserImgDiv.className = "userPicture";
-    cardUserImgDiv.style.backgroundImage = `url(${profileImgUrl})`;
+    cardUserImgDiv.style.backgroundImage = `url(${image.user.profile_image.large})`;
     cardUserImgDiv.style.border = "solid 3.5px " + userRingColors[Math.floor(Math.random() * 7)];
     
 
@@ -77,8 +77,8 @@ export const cardMaker = (elementoPadre, imageUrl, profileImgUrl, userID, creati
         const uploadDate = document.createElement("h4");
         cardInfoDiv.appendChild(uploadDate);
 
-            userName.textContent = userID;
-            uploadDate.textContent = creationDate;
+            userName.textContent = image.user.name;
+            uploadDate.textContent = new Date(image.created_at).toLocaleDateString();
 
         };
 

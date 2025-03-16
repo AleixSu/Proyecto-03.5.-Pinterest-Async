@@ -5,11 +5,11 @@ import './main.css';
 export const mainMaker = (elementoPadre) => {
     const noResultsText = document.createElement("section")
     elementoPadre.appendChild(noResultsText);
-    noResultsText.classList="noResultsTextOFF"
+    noResultsText.classList.add ("noResultsTextOFF");
     const main = document.createElement("main");
     elementoPadre.appendChild(main);
 
-     main.classList = "main";
+     main.classList.add("main");
      
 const accesKey = import.meta.env.VITE_UNSPLASH_ACCESS_KEY;
 
@@ -51,7 +51,7 @@ const searchEngine = async () => {
       });
 
     
-      noResultsText.classList="noResultsTextOFF";
+      noResultsText.classList.add("noResultsTextOFF");
       noResultsText.innerHTML=``;
 
     }else{

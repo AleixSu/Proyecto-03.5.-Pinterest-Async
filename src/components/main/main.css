@@ -1,10 +1,9 @@
 .main{
     padding: 85px 40px ;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-    gap: 10px;
+    columns:12rem;
+    column-gap: 15px;
     justify-content: center;
-    align-items: flex-start;
+
 }
 
 

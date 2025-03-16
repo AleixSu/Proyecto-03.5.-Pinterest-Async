@@ -6,11 +6,12 @@ import './cards.css';
 export const cardMaker = (elementoPadre, image) => {
     const cardDiv = document.createElement("div");
     elementoPadre.appendChild(cardDiv)
-    cardDiv.className = "cardDiv";
+    cardDiv.classList.add("cardDiv");
+
 
     const cardDivImg = document.createElement("div");
     cardDiv.appendChild(cardDivImg);
-    cardDivImg.className = "cardDivImg";
+    cardDivImg.classList.add("cardDivImg");
 
         const cardImg = document.createElement("img");
         cardDivImg.appendChild(cardImg);
@@ -18,7 +19,7 @@ export const cardMaker = (elementoPadre, image) => {
     
     const photoButton = document.createElement("button");
     cardDiv.appendChild(photoButton);
-    photoButton.className = "photoButton";
+    photoButton.classList.add("photoButton");
 
         const cameraImg = document.createElement("img");
         cameraImg.src = "https://cdn-icons-png.flaticon.com/128/45/45010.png"
@@ -30,24 +31,19 @@ export const cardMaker = (elementoPadre, image) => {
 
     const likeButton = document.createElement("button");
     cardDiv.appendChild(likeButton);
-    likeButton.className = "likeButton";
+    likeButton.classList.add("likeButton");
 
         const heartDiv = document.createElement("div");
-        heartDiv.classList = "heartDivEmpty";
+        heartDiv.classList.add("heartDivEmpty")
         likeButton.appendChild(heartDiv);
 
             likeButton.addEventListener("click", () => {
-
-                if (heartDiv.classList.contains("heartDivEmpty")) {
-                    heartDiv.classList.remove("heartDivEmpty");
-                    heartDiv.classList.add("heartDivFull");
-                    likeCount.innerText = parseInt(likeCount.innerText) + 1;
-                } else {
-                    heartDiv.classList.remove("heartDivFull");
-                    heartDiv.classList.add("heartDivEmpty");
-                    likeCount.innerText = parseInt(likeCount.innerText) - 1;
-                };
-
+                let isHeartEmpty = heartDiv.classList.contains("heartDivEmpty");
+                
+                heartDiv.classList.toggle("heartDivEmpty", !isHeartEmpty);
+                heartDiv.classList.toggle("heartDivFull", isHeartEmpty);
+                
+                likeCount.innerText = parseInt(likeCount.innerText) + (isHeartEmpty ? 1 : -1);
             });
     
         const likeCount = document.createElement("h6")
@@ -63,14 +59,14 @@ export const cardMaker = (elementoPadre, image) => {
 
     const cardUserImgDiv = document.createElement("div");
     cardDiv.appendChild(cardUserImgDiv);
-    cardUserImgDiv.className = "userPicture";
+    cardUserImgDiv.classList = "userPicture";
     cardUserImgDiv.style.backgroundImage = `url(${image.user.profile_image.large})`;
     cardUserImgDiv.style.border = "solid 3.5px " + userRingColors[Math.floor(Math.random() * 7)];
     
 
     const cardInfoDiv = document.createElement("div");
     cardDiv.appendChild(cardInfoDiv);
-    cardInfoDiv.className = "cardInfoDiv";
+    cardInfoDiv.classList.add("cardInfoDiv");
 
         const userName = document.createElement("h3");
         cardInfoDiv.appendChild(userName);

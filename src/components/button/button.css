@@ -136,7 +136,7 @@
     font-weight: 800;
     position: absolute;
     transform: translateX(87%);
-    bottom: 180px;
+    bottom: 150px;
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
     cursor: pointer;

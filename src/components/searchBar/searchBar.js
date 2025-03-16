@@ -9,7 +9,7 @@ export const searchBar = (elementoPadre) => {
     elementoPadre.appendChild(searchInput);
     
     searchInput.placeholder = "Buscar";
-    searchInput.classList = "searchInput";
+    searchInput.classList.add("searchInput");
 
 };
 

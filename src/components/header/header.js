@@ -8,11 +8,11 @@ export const headerMaker = (elementoPadre) => {
     const header = document.createElement("header");
     elementoPadre.appendChild(header);
 
-    header.classList = "header";
+    header.classList.add("header");
 
     const leftSide = document.createElement("div");
     header.appendChild(leftSide);
-    leftSide.classList = "leftSide";
+    leftSide.classList.add("leftSide");
 
 
     const pageSymbol = document.createElement("img");
@@ -28,7 +28,7 @@ export const headerMaker = (elementoPadre) => {
 
     const centerSide = document.createElement("div");
     header.appendChild(centerSide);
-    centerSide.classList = "centerSide";
+    centerSide.classList.add("centerSide");
 
 
     searchBar(centerSide);
@@ -36,7 +36,7 @@ export const headerMaker = (elementoPadre) => {
 
     const rightSide = document.createElement("div");
     header.appendChild(rightSide);
-    rightSide.classList = "rightSide";
+    rightSide.classList.add("rightSide");
 
 
     createSignButton(rightSide,"https://icones.pro/wp-content/uploads/2022/02/icone-de-cloche-grise.png");
